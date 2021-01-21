@@ -271,11 +271,27 @@ h6 {
 }
 .social-links {
   display: grid;
-  align-content: center;
+  align-content: flex-start;
   text-align: center;
+}
+.articles {
+  border: 3px solid var(--borderColor);
+  width: 100%;
+  min-height: 400px;
+  border-radius: 5px;
+  margin-top: 5px
+}
+.resources {
+  font-size: 11px;
+  font-family: monospace;
+  padding: 10px;
 }
 #social_img {
   width: 100%;
+}
+.social-links img{
+  width: 15px;
+  height: 15px;
 }
 .post-wrapper {
   display: grid;
