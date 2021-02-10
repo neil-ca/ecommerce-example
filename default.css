@@ -170,7 +170,7 @@ h6 {
   margin: 0 auto;
   height: 200px;
   width: 200px;
-  object-fit: fill;
+  object-fit: cover;
   border: 2px solid var(--borderColor);
 }
 #theme-options-wrapper {
@@ -279,12 +279,14 @@ h6 {
   width: 100%;
   min-height: 400px;
   border-radius: 5px;
-  margin-top: 5px
-}
-.resources {
-  font-size: 11px;
+  margin-top: 5px;
+  background-color: var(--mainColor);
   font-family: monospace;
-  padding: 10px;
+  font-size: 12px;
+}
+.articles > ul {
+  margin-top: -1rem;
+  margin-left: -1rem;
 }
 #social_img {
   width: 100%;
