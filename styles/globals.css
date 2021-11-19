@@ -1,0 +1,19 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-color: black;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+*{
+  box-sizing: border-box;
+  font-family: monospace;
+  text-align: center;
+  color: wheat; 
+  /*border: 1px solid black;*/
+}
