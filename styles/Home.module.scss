@@ -1,0 +1,46 @@
+.me {
+  border-radius: 50%;
+}
+
+.icons {
+  width: 25px;
+  height: 25px;
+}
+
+.nav {
+  text-align: center;
+  background: black;
+  border: 2.5px pink solid;
+  height: 100vh;
+  h1 {
+    vertical-align: middle;
+    font-family: serif;
+    cursor: pointer;
+    font-weight: 900;
+    color: wheat;
+  }
+  a {
+    color: pink;
+    margin: 20px 15px; 
+    &:hover {
+      color: papayawhip;
+    }
+  }
+  .logo {
+    position: relative;
+    top: 5px;
+    left: -4px;
+  }
+}
+
+
+.code {
+  line-height:1.2em;
+  background:linear-gradient(180deg,#ccc 0,#ccc 1.2em,#eee 0);
+  background-size:2.4em 2.4em;
+  background-origin:content-box;
+
+  /* some extra styles*/
+  padding:0 20px;
+  text-align:justify;
+}
