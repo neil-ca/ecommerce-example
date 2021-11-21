@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Nav from '../components/nav'
+import Layout from '../components/layout'
 
 const Home: NextPage = () => {
   return (
@@ -9,7 +9,7 @@ const Home: NextPage = () => {
         <title>ulicode</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Nav/>
+      <Layout/>
     </div>
   )
 }
