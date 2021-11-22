@@ -45,6 +45,7 @@ const Post: React.FC<{post: Post}> = (props) => {
   return (
     <div>
       <Link href="/"><a>Go back</a></Link>
+      <h1>{post.title}</h1>
       <div dangerouslySetInnerHTML={{__html: post.html}}/>
     </div>
   )   
