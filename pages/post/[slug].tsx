@@ -17,7 +17,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   //const a : string = "sell"
   const post = await getPost(params.slug)
   return {
-    props: { post }
+    props: { post },
+    revalidate: 10
   }
 }
 
