@@ -1,12 +1,27 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
 
-
-.code {
-  line-height:1.2em;
-  background:linear-gradient(180deg,#ccc 0,#ccc 1.2em,#eee 0);
-  background-size:2.4em 2.4em;
-  background-origin:content-box;
-
-  /* some extra styles*/
-  padding:0 20px;
-  text-align:justify;
+  h1 {
+    font-size: 2.5em;
+    font-weight: 900;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-family: -apple-system;
+    color: pink;
+    margin-left: 15px;
+    cursor: pointer;
+  }
+  .logo {
+    position: relative;
+    top: 7px;
+    left: 4px;
+  }
+  a {
+    color: yellowgreen;
+    font-weight: 800;
+    padding: 1rem;
+  }
 }
+
