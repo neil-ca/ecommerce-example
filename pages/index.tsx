@@ -1,82 +1,51 @@
 import Link from 'next/link'
 import styles from '../styles/Home.module.scss'
-import { GetStaticProps } from 'next'
 import { BsTwitter } from 'react-icons/bs'
 import { GoMarkGithub } from 'react-icons/go'
-import { AiFillLinkedin, AiOutlineWhatsApp } from 'react-icons/ai'
-import { RiCodeView} from 'react-icons/ri'
-const {CONTENT_API_KEY, API_URL }= process.env
+import { AiFillLinkedin } from 'react-icons/ai'
+import Nav from '../Nav'
+import Image from 'next/image'
 
-type Post = {
-  title: string
-  slug: string
-}
 
-async function getPosts() {
-  const res = await fetch(
-    `${API_URL}/ghost/api/v3/content/posts/?key=${CONTENT_API_KEY}&fields=title,slug`)
-  .then((res) => res.json())
-  
-  const posts = res.posts
-  return posts
-}
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const posts = await getPosts()
-  return {
-    props: { posts },
-    revalidate: 10
-  }
-}
-
-const Home: React.FC<{ posts: Post[] }> = (props) => {
-  const { posts } = props
+const Home: React.FC = () => {
   return (<>
-  
-  <div className={styles.navbar}>
-    <h1>ulicode<RiCodeView className={styles.logo}/></h1>
-    <div>
-      <Link href="/porfolio"><a>Porfolio</a></Link>
-      <Link href="/blog"><a>Blog</a></Link>
+    <Nav />
+    <div className={styles.container}>
+      <h1>Hello, I'm Neil 👋</h1>
+      <p>I'm a software developer focus on backend living in México, who love solve
+      problems and build things, enthusiast of the open source and disruptive
+      technologies. On and ever upward</p>
+    <div className={styles.me}>
+      <Image src="/me.jpg" width="150" height="150"/>
     </div>
-  </div>
-  <div >
-    <h1>Hello, I'm Neil 👋</h1>
-    <p>I'm a software developer living in México who love solve problems, enthusiast of the 
-    open source and disruptive technologies. On and ever upward</p>
-    <GoMarkGithub/> <BsTwitter/> <AiFillLinkedin /> <AiOutlineWhatsApp/>
+
+    <div className={styles.contact}>
+      <Link href="https://github.com/ulicod3"><a target="_blank"><GoMarkGithub/></a></Link> 
+      <Link href="https://www.linkedin.com/in/ulises-campos-9400441b5/"><a target="_blank"><AiFillLinkedin /></a></Link> 
+      <Link href="https://twitter.com/ulicode"><a target="_blank"><BsTwitter/></a></Link> 
+    </div>
+    
     <p> I dont like fullstack term but spend most of my time as <strong>web developer</strong> doing
-    backend and frontend developments also things like automation tools or system 
-    programming</p>
+    backend, frontend and databases designs helping people grow their businesses </p>
+    
+    <p><strong>email:</strong> ulicode4@gmail.com</p>
     <h3>Skills On 🔥</h3>
       <ul>
-        <li>Java</li>
+        <li>Java and Golang</li>
         <li>Javascript (react, node)</li>
-        <li>Docker, Kubernates, Cloud(aws)</li>
+        <li>Docker, Kubernates</li>
         <li>SQL(mysql, postgres, sqlite), NoSQL, Redis</li>
-        <li>Linux - Networks and protocols, Golang, Nginx, Scale systems</li>
-        <li>English</li>
+        <li>Linux - Networks and protocols, Nginx, Scale systems</li>
       </ul>
     <h3>Knowledge Interest 📚</h3>
     <ul>
       <li>Blockchain</li>
       <li>Software security</li>
+      <li>Phylosophy and politics</li>
+      <li>Maths</li>
     </ul>
   </div>
-  <div>
-      <ul>
-        {posts.map((post) => {
-          return (
-            <li key={post.slug}>
-              <Link href="/post/[slug]" as={`/post/${post.slug}`}>
-                <a>{post.title}</a>
-              </Link>
-            </li> )
-          })}
-      </ul>
-    </div>
   </>)
-
 }
 
 export default Home
