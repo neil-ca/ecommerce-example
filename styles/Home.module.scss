@@ -27,7 +27,7 @@
 
 .container {
   margin: 1rem 1.5rem;
-  h1 {
+  h1, h2 {
     text-align: center;
   }
   .me {
@@ -50,6 +50,35 @@
   p {
     font-size: 1.2em;
     text-align: center;
+  }
+  .skills {
+    //display: flex;
+    //justify-content: space-around;
+    //flex-wrap: wrap;
+    margin-top: 2rem;
+    padding: 5px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    height: max-content;
+    width: 100vw;
+  }
+  .projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 5px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    .each {
+      text-align: center;
+      border: 1px solid black;
+      margin: 2rem 5px;
+      width: 30%;
+      padding: 5px;
+      p { font-size: .9em; font-family: monospace;}
+      .git {
+        font-size: 2em;
+        color: black; 
+      }
+    }
   }
 }
 

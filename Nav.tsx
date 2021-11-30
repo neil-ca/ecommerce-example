@@ -6,7 +6,7 @@ const Nav: React.FC = () => {
   <div className={styles.navbar}>
     <Link href="/"><h1>ulicode«»</h1></Link>
     <div>
-      <Link href="/porfolio"><a>Porfolio</a></Link>
+      <a href="#portf">Porfolio</a>
       <Link href="/blog"><a>Blog</a></Link>
     </div>
   </div>

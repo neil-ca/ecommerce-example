@@ -5,6 +5,7 @@ import { GoMarkGithub } from 'react-icons/go'
 import { AiFillLinkedin } from 'react-icons/ai'
 import Nav from '../Nav'
 import Image from 'next/image'
+import Card from '../Card'
 
 
 const Home: React.FC = () => {
@@ -15,6 +16,9 @@ const Home: React.FC = () => {
       <p>I'm a software developer focus on backend living in México, who love solve
       problems and build things, enthusiast of the open source and disruptive
       technologies. On and ever upward</p>
+      
+      <p> I dont like fullstack term but spend most of my time as <strong>web developer</strong> doing
+    backend, frontend and databases designs helping people grow their businesses. </p>
     <div className={styles.me}>
       <Image src="/me.jpg" width="150" height="150"/>
     </div>
@@ -25,10 +29,11 @@ const Home: React.FC = () => {
       <Link href="https://twitter.com/ulicode"><a target="_blank"><BsTwitter/></a></Link> 
     </div>
     
-    <p> I dont like fullstack term but spend most of my time as <strong>web developer</strong> doing
-    backend, frontend and databases designs helping people grow their businesses </p>
     
     <p><strong>email:</strong> ulicode4@gmail.com</p>
+
+    <div className={styles.skills}>
+      
     <h3>Skills On 🔥</h3>
       <ul>
         <li>Java and Golang</li>
@@ -44,6 +49,30 @@ const Home: React.FC = () => {
       <li>Phylosophy and politics</li>
       <li>Maths</li>
     </ul>
+    </div>
+
+    <h2 id="portf">Some Projects</h2>
+      <div className={styles.projects}>
+        
+        <Card name="Trillo/Nexter" link="https://ulicod3.github.io/Trillo/"
+          linkSrc="https://github.com/ulicod3/Trillo/" imgSrc="/trillo.png">
+          <p>Two web page static that shows reviews of hotels and selling luxury houses called
+          <Link href="https://ulicod3.github.io/Nexter/"><a target="_blank"> Nexter </a></Link>
+          which were build in scss putting in practice flexbox, grid and responsive design</p>
+        </Card>
+
+        
+        <div className={styles.each}>
+         <h4>Tweeto </h4>
+          <Image src="/go.png" width="350" height="200"/>
+         <p>Full web app that pretend to be a twitter clone, has an API in Go
+         with authentication of users and the follow system, the <a href="https://github.com/ulicod3/tweeto-client" target="_blank">
+         client </a> is made in next js framework</p>
+         <Link href="https://github.com/ulicod3/tweeto">
+            <a target="_blank" className={styles.git}><GoMarkGithub/></a></Link>
+        </div>
+
+      </div>
   </div>
   </>)
 }
