@@ -1,54 +1,24 @@
 import Link from 'next/link'
-//import styles from '../styles/Home.module.scss'
-import { GetStaticProps } from 'next'
+import styles from './Blog.module.scss'
 import Nav from '../../Nav'
 
-const {CONTENT_API_KEY, API_URL }= process.env
 
-type Post = {
-  title: string
-  slug: string
-}
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const res = await fetch(`${API_URL}/ghost/api/v3/content/posts/?key=${CONTENT_API_KEY}&fields=title,slug`)
-  const data = await res.json()
-  const posts = data.posts
-  if (!posts) {
-    return { 
-      redirect: {
-        destination: '/',
-        permanent: false
-      }
-    }
-  }
-  return {
-    props: { posts },
-    revalidate: 10
-  }
-}
-
-const Blog: React.FC<{ posts: Post[] }> = (props) => {
-  const { posts } = props
+const Blog: React.FC = () => {
   return (<>
   <Nav />
-  <div>
-    <h2>This blog is used only to clarify what was studied but if something works 
-    for you, great!!</h2>
+  <div className={styles.container}>
+    <h1>ARTICLES</h1>
+    <p>I like to write about anything that I am currently working or something
+    new that interests me. I hope you enjoy you can find me on <a href="https://twitter.com/ulicode" 
+    target="_blank">twitter</a></p>
       <ul>
-        {posts.map((post) => {
-          return (
-            <li key={post.slug}>
-              <Link href="/blog/post/[slug]" as={`/blog/post/${post.slug}`}>
-                <a>{post.title} ✍️</a>
-              </Link>
-            </li> )
-          })}
+        <li>
+          <Link href="/blog/post/networks"><a>Overview of Networked systems</a></Link>
+         </li> 
       </ul>
     </div>
   </>)
 
 }
-
 export default Blog
 

@@ -51,17 +51,17 @@ const Home: React.FC = () => {
     </ul>
     </div>
 
-    <h2 id="portf">Some Projects</h2>
+    <h2>Some Projects</h2>
       <div className={styles.projects}>
         
-        <Card name="Trillo/Nexter" link="https://ulicod3.github.io/Trillo/"
+        <Card name="Trillo" link="https://ulicod3.github.io/Trillo/"
           linkSrc="https://github.com/ulicod3/Trillo/" imgSrc="/trillo.png">
           <p>Two web page static that shows reviews of hotels and selling luxury houses called
           <Link href="https://ulicod3.github.io/Nexter/"><a target="_blank"> Nexter </a></Link>
-          which were build in scss putting in practice flexbox, grid and responsive design</p>
+          which were build in scss putting in practice flexbox, grid and responsive design with media queries.
+          I use BEM convention for the naming of tags</p>
         </Card>
 
-        
         <div className={styles.each}>
          <h4>Tweeto </h4>
           <Image src="/go.png" width="350" height="200"/>
@@ -72,6 +72,15 @@ const Home: React.FC = () => {
             <a target="_blank" className={styles.git}><GoMarkGithub/></a></Link>
         </div>
 
+        <div className={styles.each}>
+         <h4>Reddit</h4>
+          <Image src="/reddit.png" width="350" height="200"/>
+         <p>Full web app that pretend to be a reddit clone, using graphQL making easy 
+         for the client fetch the data of the users and using postgres as database
+         with some fake data for test the server</p>
+         <Link href="https://github.com/ulicod3/graphql-react-typescript">
+            <a target="_blank" className={styles.git}><GoMarkGithub/></a></Link>
+        </div>
       </div>
   </div>
   </>)
