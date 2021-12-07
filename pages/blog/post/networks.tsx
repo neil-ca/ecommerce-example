@@ -30,146 +30,23 @@ const Networks:React.FC = () => {
   most of our network applications rely on the transport layer to handle the error 
   correction, flow control, retransmission, and transport acknowledgment of each
   segment.</p>
+  <h2>The Internet Layer</h2>
+  <p>Is responsible for routing packets of data from the upper layers between the
+  origin node and the destination, often over multiple networks with heterogeneous
+  physycal media. Plays an integral role in ensuring that the data we send reaches
+  its destination, no matter the complexity between the origin and destination. <br/>
+  Internet Protocol version 4(IPv4), IPv6, Border Gateway Protocol(BGP), Internet
+  Control Message Protocol(ICMP), Internet Group Managment Protocol(IGMP), and the
+  Internet Protocol Security(IPsec) suite, others, provide host identification and
+  TCP/IP's internet layer.</p>
+  <h2>The Link layer</h2>
+  <p>The link layer which corresponds to layers 1 and 2 of the OSI reference model,
+  is the interface between the core TCP/IP protocols and the physical media.<br/>
+  The link layer's Address Resolution Protocol(ARP) translates a node's IP address to 
+  the MAC address of its network interface</p>
     <pre>{`
 package main
 
-import (
-	"bytes"
-	"context"
-	"encoding/json"
-	"fmt"
-	"io"
-	"io/ioutil"
-	"mime/multipart"
-	"net/http"
-	"net/http/httptest"
-	"os"
-	"path/filepath"
-	"testing"
-	"time"
-)
-
-type User struct {
-    First string
-    Last string
-}
-
-func handlePostUser(t *testing.T) func(http.ResponseWriter, *http.Request) {
-    return func(w http.ResponseWriter, r *http.Request) {
-        defer func(r io.ReadCloser) {
-            _, _ = io.Copy(ioutil.Discard, r)
-            _ = r.Close()
-        }(r.Body)
-
-        if r.Method != http.MethodPost {
-            http.Error(w, "", http.StatusMethodNotAllowed)
-            return
-        }
-
-        var u User
-        err := json.NewDecoder(r.Body).Decode(&u)
-        if err != nil {
-            t.Error(err)
-            http.Error(w, "decode dailed", http.StatusBadRequest)
-            return
-        }
-
-        w.WriteHeader(http.StatusAccepted)
-    }
-}
-
-func TestPostUser(t *testing.T) {
-    ts := httptest.NewServer(http.HandlerFunc(handlePostUser(t)))
-    defer ts.Close()
-
-    resp, err := http.Get(ts.URL)
-    if err != nil {
-        t.Fatal(err)
-    }
-    if resp.StatusCode != http.StatusMethodNotAllowed {
-        t.Fatalf("expected status %d; actual status %d", 
-        http.StatusMethodNotAllowed, resp.StatusCode)
-    }
-
-    buf := new(bytes.Buffer)
-    u := User{First: "Neil", Last: "Ulises"}
-    err = json.NewEncoder(buf).Encode(&u)
-    if err != nil {
-        t.Fatal(err)
-    }
-
-    resp, err = http.Post(ts.URL, "application/json", buf)
-    if err != nil {
-        t.Fatal(err)
-    }
-    if resp.StatusCode != http.StatusAccepted {
-        t.Fatalf("expected status %d; actual status %d",
-        http.StatusAccepted, resp.StatusCode)
-    } 
-    _ = resp.Body.Close()
-}
-
-func TestMultiPartPost(t *testing.T) {
-    reqBody := new(bytes.Buffer)
-    w := multipart.NewWriter(reqBody)
-
-    for k, v := range map[string]string {
-        "date": time.Now().Format(time.RFC3339),
-        "description": "Form values with attached files",
-    } {
-        err := w.WriteField(k, v)
-        if err != nil {
-            t.Fatal(err)
-        }
-    }
-    for i, file := range []string {
-        "./files/hello.txt",
-        "./files/goodbye.txt",
-    } {
-        filePart, err := w.CreateFormFile(fmt.Sprintf("file%d", i+1), filepath.Base(file))
-        if err != nil {
-            t.Fatal(err)
-        }
-
-        f, err := os.Open(file)
-        if err != nil {
-            t.Fatal(err)
-        }
-
-        _, err = io.Copy(filePart, f)
-        _ = f.Close()
-        if err != nil {
-            t.Fatal(err)
-        }
-    }
-
-    err := w.Close()
-    if err != nil { t.Fatal(err) }
-    
-    // posts the request
-    ctx, cancel := context.WithTimeout(context.Background(), 60*time.Second)
-    defer cancel()
-
-    req, err := http.NewRequestWithContext(ctx, http.MethodPost, "https://httpbin.org/post", reqBody)
-    if err != nil { t.Fatal(err) }
-
-    req.Header.Set("Content-Type", w.FormDataContentType())
-
-    resp, err := http.DefaultClient.Do(req)
-    if err != nil { t.Fatal(err) }
-    defer func() { _ = resp.Body.Close() }()
-
-    b, err := ioutil.ReadAll(resp.Body)
-    if err != nil {
-        t.Fatal(err)
-    }
-
-    if resp.StatusCode != http.StatusOK {
-        t.Fatalf("expected status %d; actual status %d", http.StatusOK, resp.StatusCode)
-    }
-
-    t.Logf("\n%s", b)
-}
 `}</pre>
 
   
