@@ -1,13 +1,15 @@
 import Link from 'next/link'
-const Networks:React.FC = () => {
-  return <div>
+import styles from '../Blog.module.scss'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+const Networks = () => {
+  return <div className={styles.post}>
   
   <Link href="/blog"><a>Go back</a></Link>
   <h1>Overview of Networked systems</h1>
-  <p>A computer network is a connection between two or more devices, or nodes, that
-  allows each node to share data.</p>
+  A computer network is a connection between two or more devices, or nodes, that
+  allows each node to share data.
   <h2>Network topology</h2>
-  <p>Can be as simple as a single connection between two nodes os as complex as a 
+  Can be as simple as a single connection between two nodes os as complex as a 
   layout of nodes that dont share a direct a direct connection but are nonethless 
   able to change data. <br/>Types: Point to point, daisy chain, bus, ring, star 
   and mesh; Real world networks are composed of 2 or more toplogy networks. <br/>
@@ -19,9 +21,8 @@ const Networks:React.FC = () => {
   layer of the stack. <br/>
   This layer include HTTP, the File Transfer Protocol(FTP), SMTP for emails, Dynamic
   Host Configuration Protocol(DHCP) and the Domain Name System(DNS).
-  </p>
   <h2>The transport Layer</h2>
-  <p>Transport layer protocol handle the transfer of data between two nodes. These
+  Transport layer protocol handle the transfer of data between two nodes. These
   protocol can help ensure data integrity by making sure that all data sent from 
   the origin completely and correctly makes its way to the destination will receive all.
   It does mean that TCP specifically will make sure the data received by the destination
@@ -29,27 +30,28 @@ const Networks:React.FC = () => {
   The primary transport layers are TCP and the User Datagram Protocol(UDP) and
   most of our network applications rely on the transport layer to handle the error 
   correction, flow control, retransmission, and transport acknowledgment of each
-  segment.</p>
+  segment.
   <h2>The Internet Layer</h2>
-  <p>Is responsible for routing packets of data from the upper layers between the
+  Is responsible for routing packets of data from the upper layers between the
   origin node and the destination, often over multiple networks with heterogeneous
   physycal media. Plays an integral role in ensuring that the data we send reaches
   its destination, no matter the complexity between the origin and destination. <br/>
   Internet Protocol version 4(IPv4), IPv6, Border Gateway Protocol(BGP), Internet
   Control Message Protocol(ICMP), Internet Group Managment Protocol(IGMP), and the
   Internet Protocol Security(IPsec) suite, others, provide host identification and
-  TCP/IP's internet layer.</p>
+  TCP/IP's internet layer.
   <h2>The Link layer</h2>
-  <p>The link layer which corresponds to layers 1 and 2 of the OSI reference model,
+  The link layer which corresponds to layers 1 and 2 of the OSI reference model,
   is the interface between the core TCP/IP protocols and the physical media.<br/>
   The link layer's Address Resolution Protocol(ARP) translates a node's IP address to 
-  the MAC address of its network interface</p>
-    <pre>{`
-package main
-
-`}</pre>
-
-  
-  </div>
+  the MAC address of its network interface.
+   
+<SyntaxHighlighter language="javascript" showLineNumbers={true}>
+        {`include <stdio.h>
+void main() {
+}`}
+    </SyntaxHighlighter>
+</div>
 }
- export default Networks
+
+export default Networks

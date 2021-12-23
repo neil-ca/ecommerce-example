@@ -2,6 +2,7 @@ import Link from 'next/link'
 import styles from '../styles/Home.module.scss'
 import { BsTwitter } from 'react-icons/bs'
 import { GoMarkGithub } from 'react-icons/go'
+
 import { AiFillLinkedin } from 'react-icons/ai'
 import Nav from '../Nav'
 import Image from 'next/image'
