@@ -1,13 +1,13 @@
 import Link from 'next/link'
-import {FaBloggerB} from 'react-icons/fa'
-
+import Image from 'next/image'
 import styles from './styles/Home.module.scss'
 const Nav: React.FC = () => {
   return (
   <div className={styles.navbar}>
-    <Link href="/"><h1>ulicode«»</h1></Link>
+    <Image src="/icon.svg" width="22" height="22"/>
+    <Link href="/"><h1>ulicode</h1></Link>
     <div>
-      <Link href="/blog"><a>ßlog</a></Link>
+      <Link href="/blog"><a>Blog</a></Link>
     </div>
   </div>
   )

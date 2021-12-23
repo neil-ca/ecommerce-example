@@ -2,7 +2,6 @@ import Link from 'next/link'
 import styles from '../styles/Home.module.scss'
 import { BsTwitter } from 'react-icons/bs'
 import { GoMarkGithub } from 'react-icons/go'
-
 import { AiFillLinkedin } from 'react-icons/ai'
 import Nav from '../Nav'
 import Image from 'next/image'
@@ -33,6 +32,7 @@ const Home: React.FC = () => {
     
     <p><strong>email:</strong> ulicode4@gmail.com</p>
 
+  </div>
     <div className={styles.skills}>
       
     <h3>Skills On 🔥</h3>
@@ -51,8 +51,9 @@ const Home: React.FC = () => {
       <li>Maths</li>
     </ul>
     </div>
+    
+    <h1 className={styles.title}>Some of my projects</h1>
 
-    <h2>Some Projects</h2>
       <div className={styles.projects}>
         
         <Card name="Trillo" link="https://ulicod3.github.io/Trillo/"
@@ -83,7 +84,6 @@ const Home: React.FC = () => {
             <a target="_blank" className={styles.git}><GoMarkGithub/></a></Link>
         </div>
       </div>
-  </div>
   </>)
 }
 

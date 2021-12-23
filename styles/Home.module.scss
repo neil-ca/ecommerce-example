@@ -1,86 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Oswald&family=Pushster&display=swap');
 .navbar {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  h1 {
-    font-size: 2.6em;
-    font-weight: 900;
-    text-shadow: 10px 1px 4px rgba(206,99,160,0.67);
-    //text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa,0 0 82px #0fa,0 0 92px #0fa,0 0 102px #0fa,0 0 151px #0fa;
-    font-family: monospace;
-    margin-left: 15px;
-    cursor: pointer;
-  }
-  //.logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #262626;
+    padding-left: 15px;
+    h1 {
+        color: white;
+        font-size: 3.9em;
+        font-weight: 100;
+        //font-family: 'Comforter Brush', cursive;
+            //font-family: 'Oswald', sans-serif;
+        font-family: 'Pushster', cursive;
+        margin: 10px 10px;
+        cursor: pointer;
+        &:hover {
+            color: #6D9F71;
+        }
+    }
+    //.logo {
     //position: relative;
     //top: 7px;
     //left: 4px;
-  //}
-  a {
-    color: yellowgreen;
-    font-weight: 800;
-    font-size: 1.2em;
-    margin-left: 2.5rem;
-    &:hover {
-      color: black;
+    //}
+    a {
+        color: yellowgreen;
+        font-weight: 800;
+        font-size: 1.2em;
+        margin-left: 2.5rem;
+        &:hover {
+            color: white;
+        }
     }
-  }
 }
 
 .container {
-  margin: 1rem 1.5rem;
-  h1, h2 {
-    text-align: center;
-  }
-  .me {
-    display: flex;
-    justify-content: center;
-    img {
-      border-radius: 50%;
+    border: 6px solid rgba(101,164,51,0.3);
+    border-radius: 15px;
+    margin: 1rem 5.5rem;
+    h1, h2 {
+        text-decoration: underline;
+        text-align: center;
     }
-  }
-  .contact {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-    a {
-      font-size: 2em;
-      color: black;
-      padding: 4px;
+    .me {
+        display: flex;
+        justify-content: center;
+        img {
+            border-radius: 50%;
+        }
     }
-  }
-  p {
-    font-size: 1.2em;
+    .contact {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+        a {
+            font-size: 2em;
+            color: yellowgreen;
+            padding: 4px;
+        }
+    }
+    p {
+        font-size: 1.2em;
+        text-align: center;
+    }
+}
+
+.title {
     text-align: center;
-  }
-  .skills {
+    text-decoration: underline;
+}
+.skills {
     //display: flex;
     //justify-content: space-around;
     //flex-wrap: wrap;
-    margin-top: 2rem;
-    padding: 5px;
+    padding: 10px;
+    padding-left: 25px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     height: max-content;
     width: 100vw;
-  }
-  .projects {
+}
+.projects {
+    margin: 1rem 1.5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 5px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 3px;
     .each {
-      text-align: center;
-      border: 1px solid black;
-      margin: 2rem 5px;
-      width: 30%;
-      padding: 5px;
-      p { font-size: .9em; font-family: monospace;}
-      .git {
-        font-size: 2em;
-        color: black; 
-      }
-    }
-  }
-}
+        text-align: center;
+        margin: 2rem 3px;
+        width: 30%;
+        border: 1px solid #a5c882; 
+        border-radius: 15px;
+        //padding: 5px;
 
+        p { font-size: .9em; font-family: monospace;}
+        .git {
+            font-size: 1.3em;
+            color: black; 
+        }
+    }
+}
