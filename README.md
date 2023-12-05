@@ -1,2 +1,2 @@
 # Ecommerce
-Template that integrate stripe 
+Template that integrate stripe for payment processing
